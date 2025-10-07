@@ -1,0 +1,302 @@
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: linear-gradient(135deg, #0000 calc(50% - 0.5em), #000 0 calc(50% + 0.5em), #0000 0) right/300% 100%;
+  animation: l22 2s infinite;
+}
+
+.loader::before {
+  content: "Passa-Tempo";
+  color: #31e24e00;
+  padding: 0 5px;
+  background: inherit;
+  background-image: linear-gradient(135deg, #000 calc(50% - 0.5em), #fff 0 calc(50% + 0.5em), #000 0);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes l22 {
+  100% {
+    background-position: left
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounceInDown {
+
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes bounceInDown {
+
+  0%,
+  60%,
+  75%,
+  90%,
+  100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Estilo geral */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #90fc2c;
+  /* Preto */
+  color: #02a01d;
+  /* Azul neon */
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Título do jogo */
+h1 {
+  font-size: 4rem;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #4ef125, 0 0 20px #4ef125;
+}
+
+/* Botões do menu */
+.botao-azul {
+  background-color: white;
+  /* Fundo branco */
+  color: #4ef125;
+  /* Azul (tom padrão) */
+  border: 2px solid #4ef125;
+  /* Borda azul */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botao-azul:hover {
+  background-color: #00830b;
+  /* Fundo azul no hover */
+  color: white;
+  /* Texto branco no hover */
+}
+
+/* CSS do JOGO */
+ /*paleta com as variáveis do tema */
+    :root{
+      --bg:#0f172a;
+      --panel:#59e12e;
+      --card:#2596be;
+      --accent:#d9e42a;
+      --win:#22c55e;
+      --text:#cadbb6;
+      --front: #59e12e;
+    }
+
+    /* Reset mínimo */
+    *{ box-sizing:border-box; }
+
+    /* html/body — altura total para permitir fundo cobrir a viewport */
+    html, body{ height:100%; }
+
+    /* body — plano de fundo e tipografia base */
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text);
+      background-color:#0b1220;
+      background-image:url('img/green-ben-10.jpg');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      min-height:100svh;
+      padding:24px;
+    }
+
+    /* .app - container principal do jogo */
+    .app{
+      width:min(1024px,100%);
+      margin-inline:auto;
+      display:grid;
+      gap:16px;
+    }
+
+    /* .header — barra superior com título/placar/botões */
+    .header{
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:12px;
+      background:var(--panel);
+      border:1px solid var(--panel);
+      border-radius:16px;
+      padding:16px 18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    /* .titulo — estilo do título do jogo */
+
+    .titulo{ 
+      font-weight:700; 
+      letter-spacing:.4px;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:#000;
+     }
+
+    /* .stats — área de status (movimentos, tempo, botões) */
+    .stats{ display:flex; gap:16px; align-items:center; font-variant-numeric:tabular-nums; }
+
+    /* .badge — para movimentos/tempo */
+    .badge{
+      background:var(--card);
+      padding:6px 10px;
+      border-radius:10px;
+      border:1px solid #2a3444;
+    }
+
+    /* .btn — estilo base dos botões */
+    .btn{
+      appearance:none;
+      border:1px solid #2a3444;
+      background:var(--card);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+    }
+    /* .btn:hover — realce no hover */
+    .btn:hover{ border-color:#3a465a; }
+
+    /* .grid — tabuleiro com n colunas */
+    .grid{
+      display:grid; gap:12px;
+      grid-template-columns:repeat(6,1fr); /* troque para qtde colunas */
+    }
+
+ 
+    /* .card — cartões*/
+    .card{
+      appearance:none;        
+      background:transparent;
+      position:relative;
+      aspect-ratio:3/4;
+      width:100%;
+      border-radius:14px;
+      overflow:hidden;
+      user-select:none;
+      border:1px solid #2a3444;
+      box-shadow:0 8px 18px rgba(0,0,0,.35);
+      transform-style:preserve-3d;
+      perspective:1000px;
+    }
+
+    /* .inner — wrapper que realmente gira no eixo Y */
+    .inner{
+      position:absolute; inset:0;
+      transform-style:preserve-3d;
+      will-change:transform;
+    }
+
+    /* .face — camada base das faces (frente/verso) */
+    .face{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      background:transparent;
+      background-size:cover;
+      background-position:center;
+      backface-visibility:hidden;
+    }
+
+    /* .face img — imagem da frente da carta */
+    .face img{
+      width:80%; height:80%;
+      object-fit:contain;
+      pointer-events:none;
+    }
+
+    /* .front — frente da carta (mantém transparente) */
+    .front{
+      border-radius:14px;
+       background-color: var(--front);
+    }
+
+    /* .back — verso da carta */
+    .back{
+      transform:rotateY(180deg);
+      background-image:url('img/ben-10-art-poster.jpg');
+      background-color:transparent;
+    }
